@@ -1,0 +1,58 @@
+$app-colors: (
+  blue: #2A53CA,
+  red: #FF5959,
+  green: #37763A,
+  orange: #FFA34A,
+);
+
+.app-notify__container {
+  position: absolute;
+  z-index: 9999;
+  top: 0;
+  right: 0;
+  max-height: 100%;
+  max-width: 25%;
+  overflow: auto;
+}
+
+.app-notify__item {
+  position: relative;
+  display: flex;
+  box-shadow: 1px 2px 4px 1px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(120, 120, 120, 0.3);
+  border-radius: 2px;
+  padding: 0.5rem;
+  margin: 1rem;
+  overflow: auto;
+  color: #fff;
+  cursor: pointer;
+  transition: opacity ease $app-anim-duration;
+
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
+.app-notify__item--info {
+  background-color: map-get($app-colors, blue);
+}
+
+.app-notify__item--success {
+  background-color: map-get($app-colors, green);
+}
+
+.app-notify__item--warning {
+  background-color: map-get($app-colors, orange);
+}
+
+.app-notify__item--error {
+  background-color: map-get($app-colors, red);
+}
+
+.app-notify__icon {
+  padding-right: 0.5rem;
+}
+
+.app-notify__title {
+  font-size: 1.15em;
+}

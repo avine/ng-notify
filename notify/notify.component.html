@@ -1,0 +1,27 @@
+<div
+  *ngIf="notifyService.notifs$ | async; let notifs"
+  class="app-notify__container">
+  <div
+    *ngFor="let notif of notifs; trackBy: trackById"
+    [class]="getClass(notif)"
+    (click)="notifyService.remove(notif.id)"
+    @animateItem>
+
+    <fa-icon
+      class="app-notify__icon"
+      [icon]="getIcon(notif)"
+      [fixedWidth]="true"
+      size="lg">
+    </fa-icon>
+
+    <div>
+      <strong
+        class="app-notify__title"
+        *ngIf="notif.title">
+        {{ notif.title }}:
+      </strong>
+      {{ notif.content }}
+    </div>
+
+  </div>
+</div>
